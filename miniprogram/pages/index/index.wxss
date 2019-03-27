@@ -1,0 +1,12 @@
+van-tag{
+  margin-right: 5px;
+}
+.movieItem{
+  margin-top: 20px;
+  padding: 0 10px;
+}
+.btn-detail{
+  position: relative;
+  left: -10px;
+  top: -10px;
+}

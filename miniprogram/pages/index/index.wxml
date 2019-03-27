@@ -1,1 +1,25 @@
-<text>私房书柜</text>
+
+<view wx:for="{{movieList}}" class='movieItem'>
+  <van-card
+  num="{{}}"
+  price="评分: {{item.rating.average}}"
+ 
+  title="{{item.original_title}}"
+  thumb="{{item.images.large}}"
+  >
+<view slot="desc">
+  
+<van-tag  type="danger" wx:if="{{item.genres[0]}}">{{item.genres[0]}}</van-tag>
+<van-tag  type="primary" wx:if="{{item.genres[1]}}">{{item.genres[1]}}</van-tag>
+<van-tag  type="success" wx:if="{{item.genres[2]}}">{{item.genres[2]}}</van-tag>
+  </view>
+
+
+<view slot="footer" class='btn-detail'>
+  <van-button data-id="{{item._id}}" size='small' type='primary' plain bindtap='goDetail'>查看详情</van-button>
+</view>
+
+
+  </van-card>
+
+</view>

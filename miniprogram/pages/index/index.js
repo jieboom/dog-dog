@@ -1,17 +1,27 @@
+
+const DB = wx.cloud.database()
+const movieColl = DB.collection('movie')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+      movieList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+
+   
+    movieColl.get().then(res => {
+           this.setData({
+             movieList: res.data
+
+           })
+    })
   },
 
   /**
@@ -61,5 +71,17 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  goDetail(event){
+    
+     let id = event.target.dataset.id
+     movieColl.doc(id).get().then( res => {
+       wx.navigateTo({
+         url: '../bookDetail/bookDetail?id=' + id
+       })
+     } )
+
   }
+
+  
 })
