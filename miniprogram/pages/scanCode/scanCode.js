@@ -71,15 +71,15 @@ Page({
       success: function(res) {
         
           
-          //   wx.cloud.callFunction({
-          //    name:"bookInfo",
-          //    data:{
-          //      isbn:  res.result
-          //    }
+            wx.cloud.callFunction({
+             name:"checkExcel",
+             data:{
+               
+             }
             
-          //  }).then( res => {
-             
-          //  } )
+           }).then( res => {
+              console.log( res )
+           } )
 
 
         // const DB = wx.cloud.database()
