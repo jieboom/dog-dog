@@ -22,5 +22,6 @@
         "text": "扫码"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
