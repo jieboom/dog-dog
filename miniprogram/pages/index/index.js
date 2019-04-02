@@ -15,13 +15,12 @@ Page({
    */
   onLoad: function (options) {
 
-   
-    movieColl.get().then(res => {
-           this.setData({
-             movieList: res.data
-
-           })
-    })
+     wx.cloud.callFunction({
+       name:'crawler',
+       
+     }).then( res => {
+         console.log( res.result )
+     } )
   },
 
   /**
