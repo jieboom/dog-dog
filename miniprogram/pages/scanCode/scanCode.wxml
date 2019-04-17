@@ -1,1 +1,0 @@
-<van-button type="primary" bindtap="scanCode" >扫码加书</van-button>

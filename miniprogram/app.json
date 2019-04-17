@@ -1,27 +1,26 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/scanCode/scanCode",
-    "pages/bookDetail/bookDetail"
+    "pages/channel/channel"
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#000000", 
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "私房书柜",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "预告汪",
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "推荐"
       },
       {
-        "pagePath": "pages/scanCode/scanCode",
-        "text": "扫码"
+        "pagePath": "pages/channel/channel",
+        "text": "频道"
       }
     ]
-  },
-  "sitemapLocation": "sitemap.json"
+  }
+ 
 }

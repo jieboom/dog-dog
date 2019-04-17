@@ -33,22 +33,6 @@
 		"game": {
 			"list": []
 		},
-		"miniprogram": {
-			"current": 1,
-			"list": [
-				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
-				},
-				{
-					"id": -1,
-					"name": "scanCode",
-					"pathName": "pages/scanCode/scanCode",
-					"scene": null
-				}
-			]
-		}
+	
 	}
 }
