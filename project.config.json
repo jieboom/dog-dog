@@ -13,7 +13,7 @@
 	},
 	"appid": "wx68c436f29d7d71e4",
 	"projectname": "%E9%A2%84%E5%91%8A%E6%B1%AA",
-	"libVersion": "2.2.5",
+	"libVersion": "2.4.4",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
@@ -33,6 +33,23 @@
 		"game": {
 			"list": []
 		},
-	
+		"miniprogram": {
+			"current": 1,
+			"list": [
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "bg",
+					"pathName": "pages/avatarBg/avatarBg",
+					"scene": null
+				}
+			]
+		}
 	}
 }

@@ -1,0 +1,123 @@
+
+/* 头像区域 */
+.avatar-container{
+    height: 400rpx;
+    position: relative;
+    background: no-repeat center center;
+    background-size: contain;
+
+}
+.avatar-container .avatar-bg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+}
+.avatar-skin{
+    position: absolute;
+    top: 30rpx;
+    right: 30rpx;
+    z-index: 999;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 30rpx;
+    border: 4rpx solid #fff;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACHElEQVRoQ+2YfVXDMBTF71MADgAFMAdMAThgUwA42BwMB5sCQAE4YCgAHODgce5Idto0adJ26ygn+bMnee/+3lfTCga+ZOD6kQEOncGcgZyBjhHoVEKqegHgyGj4EpHPFD2qegrgpOk5n+1GAKp6DOAKwATApWNwLSKjRIA3AIQvricASxF5TrFh9yQDqOotgBkAQoTWWERe6wSoKsFfavasAdzH7CQDmKg/eiLu0/ANYBQqJVM6jH5dEKzdmYjMY9mozYCpcUYrxaH1RQg6fyg6T8ygq5dlNRUR2vSuIEBL8a4T29Rs2raLJcXS9EJ4AXYkvq1g37nggKgAmJpn2bhTYpeC2tjihJq6B30AbNjrNh56OMPptCj6KQGoKoUT4C8vTjn2xWZtAUzpfDScOIcA5WAgxKapiwBLADeHUNTC51xE+FL9BTAvGEZ/SOuML0wLwBcVrwDnAyF4582AZeT2wBAgtuJLPWBKKSUTNLCvTMVsl8RXABIgVrzyRm6TXapwbK7qvmFSEe8FqIFYicgk4TrcCYDXaFV1J6JXfBDAA7ERb57H7vOdAYwfCxEUXwtQgLizM7dPAOOLs37R6jodCmMfJdQkhcmflNZoBqgPb/Sb2j2eM9CkXhP25gxEg5SbODdxOQJ5CkWbptmGPIWi8foPU4hfbfv6a8dfiMEfub7oNm7iaIp63pABeg54xV3OQM5AxwgMvoR+AMyi8zFvBJhOAAAAAElFTkSuQmCC);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.avatar-wrapper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.avatar-wrapper image{
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 150rpx;
+    margin-bottom: 40rpx;
+}
+.avatar-wrapper text{
+    color: #fff;
+    font-weight: 600;
+    font-size: 30rpx;
+}
+.avatar-wrapper button{
+   color: #fff !important;
+   background: transparent !important;
+   font-size: 30rpx;
+}
+
+.other-container{
+    padding: 0 40rpx;
+    
+}
+
+/* 历史和收藏 */
+
+.history-conatainer,.collection-conatainer{
+        border-bottom: 4rpx solid #333;
+}
+
+.title{
+    font-size: 32rpx;
+    color: #fff;
+    line-height: 120rpx;
+    padding-top: 20rpx;
+}
+.history-wrapper,.collection-wrapper{
+    display: flex;
+    margin-bottom: 30rpx;
+
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+}
+.collection-item,.history-item{
+    width: 250rpx;
+    margin-right: 15rpx;
+}
+.collection-item image,.history-item image{
+    width: 250rpx;
+    height: 150rpx;
+    border-radius: 4rpx;
+}
+.collection-item text,.history-item text{
+    display: block;
+    
+    margin-top: 10rpx;
+    color: #ccc;
+    text-align: center;
+}
+.tip--nodata{
+    color: #fff;
+    line-height: 80rpx;
+}
+
+.set-container{
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    height: 120rpx;
+    align-items: center;
+    border-bottom: 4rpx solid #333;
+    font-size: 32rpx;
+}
+.set-container image{
+    width: 30rpx;
+    height: 30rpx;
+}

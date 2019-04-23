@@ -1,26 +1,48 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/channel/channel"
+    "pages/channel/channel",
+    "pages/searchView/searchView",
+    "pages/detail/detail",
+    "pages/searchResult/searchResult",
+    "pages/my/my",
+    "pages/avatarBg/avatarBg",
+    "pages/setting/setting",
+    "pages/editPersonInfo/editPersonInfo",
+    "pages/personInfo/personInfo",
+    "pages/about/about"
   ],
   "window": {
-    "backgroundColor": "#000000", 
+    "backgroundColor": "#ffffff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#000000",
     "navigationBarTitleText": "预告汪",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#ffffff",
+    "backgroundColor": "#000000",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "推荐"
+        "text": "推荐",
+        "iconPath": "common/images/icon-tabbar.png",
+        "selectedIconPath": "common/images/icon-tabbar-selected.png"
       },
       {
         "pagePath": "pages/channel/channel",
-        "text": "频道"
+        "text": "频道",
+        "iconPath": "common/images/icon-tabbar.png",
+        "selectedIconPath": "common/images/icon-tabbar-selected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "common/images/icon-tabbar.png",
+        "selectedIconPath": "common/images/icon-tabbar-selected.png"
       }
     ]
-  }
- 
+  },
+  "sitemapLocation": "sitemap.json"
 }

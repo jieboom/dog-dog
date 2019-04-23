@@ -1,12 +1,63 @@
-van-tag{
-  margin-right: 5px;
+@import '../../template/movieList/movieList.wxss';
+page{
+  height: 100%;
+   min-height: 100%;
+ background: #000000;
+ padding-top: 20rpx;
+
 }
-.movieItem{
-  margin-top: 20px;
-  padding: 0 10px;
+
+/* 搜索按钮样式 */
+ .search{
+  box-sizing: border-box;
+  height: 80rpx;
+  margin:0 20rpx;
+  margin-bottom: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #212121;
+  border-radius: 5rpx;
+
 }
-.btn-detail{
-  position: relative;
-  left: -10px;
-  top: -10px;
+ .search text{
+  margin-left: 10rpx;
+  color: #ccc;
+  font-size: 27rpx;
+  opacity: 0.8;
 }
+
+/*轮播样式 */
+swiper{
+  height: 380rpx;
+}
+swiper swiper-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 750rpx;
+  height: 400rpx;
+
+  color: #fff;
+  font-size: 26rpx;
+  background:  no-repeat center center;
+  background-size: cover;
+  background-image: url(http://ppbde1o09.bkt.clouddn.com/9rnwDgg3Lc2cgpBwvTXE6.webp);
+}
+swiper swiper-item .swiper-item--desc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50rpx;
+}
+swiper .desc--decoration{
+  margin: 0 10rpx;
+}
+
+.swiper-item--title{
+  font-weight: 700;
+  font-size: 34rpx;
+
+}
+

@@ -1,0 +1,16 @@
+<view class="search-container">
+    <icon class="search--icon" type="search" size="13"> </icon>
+    <input type="text" value="{{initValue}}" bindinput="setKey" bindconfirm="searchByKey" class="search--text" confirm-type="search" placeholder="搜索精彩预告片"/>
+</view>
+<view class='keyword-hot key-container'>
+  <text class='key-title'>热门搜索</text>
+  <view class='key-content'>
+  <text class='key-item' bind:tap="searchByKey" data-key="{{hotItem}}" wx:for="{{hotKeyList}}" wx:for-item="hotItem">{{hotItem}}</text>
+  </view>
+</view>
+<view class='keyword-history key-container '>
+  <text class='key-title'>历史搜索</text>
+  <view class='key-content'>
+  <text class='key-item' bind:tap="searchByKey" data-key="{{historyItem}}" wx:for="{{historyKeyList}}" wx:for-item="historyItem">{{historyItem}}</text>
+  </view>
+</view>

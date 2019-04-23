@@ -1,0 +1,44 @@
+<view class="avatar-container" >
+    <image class="avatar-bg" mode="scaleToFill" src="{{userMovieInfo.avatarBgUrl}}" />
+    <view class="avatar-skin"  bind:tap="choseBg"></view>
+    <view class="avatar-wrapper">
+        <image class="avatar-img" src="{{avatarSrc}}" mode="aspectFill"></image>
+        <text class="avatar-name" wx:if="{{userInfoFlag}}">{{avatarName}}</text>
+        <button open-type="getUserInfo" bindgetuserinfo="getUserinfo" wx:else>登录</button>
+    </view>
+</view>
+<view class="other-container">
+    <view class="history-conatainer">
+        <text class="title">观看历史</text>
+        <block wx:if="{{userMovieInfo.historyList.length > 0}}">
+            <view class="history-wrapper">
+                <view class="history-item" data-type="{{historyItem.type}}" data-id="{{historyItem._id}}" bind:tap="goDetail" wx:for="{{userMovieInfo.historyList}}" wx:for-item="historyItem">
+                    <image src="{{historyItem.poster}}" />
+                    <text>{{historyItem.name}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="tip--nodata">暂无记录~</view>
+        </block>
+    </view>
+    <view class="collection-conatainer">
+        <text class="title">我的收藏</text>
+        <block wx:if="{{userMovieInfo.collectionList.length > 0}}">
+            <view class="collection-wrapper">
+                <view class="collection-item" data-type="{{collectionItem.type}}" data-id="{{collectionItem._id}}" bind:tap="goDetail" wx:for="{{userMovieInfo.collectionList}}" wx:for-item="collectionItem">
+                    <image src="{{collectionItem.poster}}" />
+                    <text>{{collectionItem.name}}</text>
+                </view>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="tip--nodata">暂无记录~</view>
+        </block>
+    </view>
+
+    <view class="set-container" bind:tap="goSetting">
+        <text >我的设置</text>
+        <image mode="scaleToFill" src="../../common/images/right-arrow.png" />
+    </view>
+</view>

@@ -1,0 +1,30 @@
+.bg-container{
+    padding:20rpx;
+
+}
+.bg-item{
+    height: 360rpx;
+    position: relative;
+    border: 4rpx solid #ccc;
+    border-radius: 10rpx;
+
+    margin-bottom: 20rpx;
+
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.item-title{
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0, 0, 0,0.3);
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left: 40rpx;
+    color: #fff;
+}
+.tip--nodata{
+    line-height: 80rpx;
+}

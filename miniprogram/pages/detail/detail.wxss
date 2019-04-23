@@ -1,0 +1,238 @@
+
+page {
+    background: #fff;
+    color: #000;
+
+}
+button[disabled]{
+    background:rgba(0, 0, 0, 0.7) !important;
+    color: #fff !important;
+}
+
+view {
+    box-sizing: border-box;
+}
+
+.video-container {
+    height: 420rpx;
+}
+
+video {
+    width: 100%;
+    height: 420rpx;
+}
+
+/* 弹幕样式 */
+.danmu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+    background: linear-gradient(to bottom, rgba(202, 216, 213, 1), rgba(202, 216, 213, 0.05))
+}
+
+.danmu-container .danmu-wrapper {
+    height: 50rpx;
+}
+
+.danmu-container input {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 50rpx;
+    width: 500rpx;
+    background: #fff;
+    border-top-left-radius: 10rpx;
+    border-bottom-left-radius: 10rpx;
+    color: #ccc;
+    font-size: 20rpx;
+    padding-left: 10rpx;
+
+}
+
+.danmu-container button {
+    display: inline-block;
+    height: 50rpx;
+    line-height: 50rpx;
+    width: 100rpx;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 0;
+    border-top-right-radius: 10rpx;
+    border-bottom-right-radius: 10rpx;
+    color: #fff;
+    padding: 0 !important;
+    font-size: 20rpx;
+}
+
+/* 内容样式 */
+
+.desc-container {
+    padding: 20rpx 40rpx;
+}
+
+.desc--title {
+    width: 100%;
+    padding: 30rpx 60rpx;
+    font-size: 34rpx;
+    text-align: center;
+    font-weight: bold;
+}
+
+.desc--other {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50rpx;
+
+}
+
+.desc--other_left {
+    color: #ccc;
+}
+
+.desc--collection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+}
+
+.desc--collection icon {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 10rpx;
+}
+
+.desc--content {
+    min-height: 200rpx;
+}
+
+.desc--actor {
+    margin-top: 50rpx;
+    overflow: hidden;
+
+}
+
+
+
+/* 演员表 */
+
+.actor--title {
+
+    display: block;
+    font-size: 30rpx;
+    padding-bottom: 20rpx;
+}
+
+.actor--wrapper {
+    display: flex;
+    justify-content: flex-start;
+
+
+
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-behavior: unset;
+    width: 100%;
+
+}
+
+.actor-item {
+
+    flex-shrink: 0;
+    margin-right: 50rpx;
+    width: 150rpx;
+
+
+}
+
+.actor-item image {
+    width: 100%;
+    height: 210rpx;
+}
+
+.actor-item text {
+    width: 100%;
+
+    display: inline-block;
+    color: #333;
+    text-align: center;
+}
+
+
+
+
+
+/* 相似推荐 */
+
+
+.like-container {
+    width: 100%;
+    padding: 40rpx;
+}
+
+.like--title {
+
+
+    display: block;
+    font-size: 30rpx;
+    padding-bottom: 20rpx;
+
+}
+
+.like--wrapper{
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.like-item{
+    
+    position: relative;
+    flex-shrink: 0;
+    width: 300rpx;
+    height: 200rpx;
+   
+    margin-right: 20rpx;
+    background: no-repeat center center;
+    background-size: cover;
+    
+}
+
+.like-cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.3)   
+}
+
+
+.like-item--duration{
+    position: absolute;
+    bottom: 60rpx;
+    left: 20rpx;
+    z-index: 2;
+    font-size: 24rpx;
+    color: #fff;
+}
+.like-item--title{
+    position: absolute;
+    bottom: 20rpx;
+    left: 20rpx;
+    z-index: 2;
+
+    display: inline-block;
+    width: 280rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    color: #fff;
+
+
+}

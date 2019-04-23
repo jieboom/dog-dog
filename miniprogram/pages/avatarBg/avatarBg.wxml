@@ -1,0 +1,6 @@
+<view class="bg-container">
+    <view class="bg-item" wx:for="{{bgList}}" data-src="{{item.src}}" bind:tap="choseBg">
+        <image mode="scaleToFill" src="{{item.src}}" />
+        <view class="item-title">{{item.title}}</view>
+    </view>
+</view>

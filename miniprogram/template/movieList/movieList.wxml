@@ -1,0 +1,19 @@
+<template name="movieList">
+ 
+  <view class="movies-container">
+    <view class="movie-item" wx:for="{{movieList}}" data-type="{{item.type}}" data-id="{{item._id}}" bind:tap="goDetail">
+      <view class="item-cover" style="background-image:url({{item.poster}})"></view>
+      <view class="item-wrapper">
+        <view class="movie-item--desc">
+          <image mode="aspectFit" class="desc--icon" src="../../common/images/icon-play.png"></image>
+          <text class="desc--text">{{item.duration}}</text>
+          <text class="desc--type">#{{item.type}}</text>
+        </view>
+        <text class="movie-item--title one-line-cut">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  
+    <view class="tip__more" wx:if="{{hasMore}}">全力加载中...</view>
+    <view class="tip__more" wx:else>没有更多了!</view>
+</template>
