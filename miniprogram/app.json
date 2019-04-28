@@ -10,7 +10,8 @@
     "pages/setting/setting",
     "pages/editPersonInfo/editPersonInfo",
     "pages/personInfo/personInfo",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/channelDetail/channelDetail"
   ],
   "window": {
     "backgroundColor": "#ffffff",

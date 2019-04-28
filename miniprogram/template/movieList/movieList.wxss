@@ -18,6 +18,7 @@
   
  
 }
+
 .movies-container .item-cover{
    position: absolute;
    top: 0;
@@ -26,8 +27,12 @@
    height: 100%;
    background:  no-repeat center bottom;
    background-size: cover;
-   opacity: 0.7;
+   background-color: #353535;
+   opacity: 0.9;
   z-index: 1;
+}
+.lazyLoad-movieList1{
+  background-color: #444 !important;
 }
 .movies-container .item-wrapper{
   box-sizing: border-box;
@@ -67,6 +72,8 @@
   font-weight: 600;
   font-size: 30rpx;
 }
+
+
 
 
 /* 加载更多 */

@@ -1,2 +1,6 @@
-<!--miniprogram/pages/channel/channel.wxml-->
-<text>miniprogram/pages/channel/channel.wxml</text>
+<view class="channel-container">
+    <view class="channel-item" data-type="{{item.desc}}" wx:for="{{typeList}}" bind:tap="goChannelDetail">
+      <image mode="scaleToFill center" class="channel-img" src="{{item.url}}" />
+      <text class="channel-text">{{item.desc}}</text>
+    </view>
+</view>

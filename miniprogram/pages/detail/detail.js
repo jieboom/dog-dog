@@ -5,7 +5,7 @@ Page({
   videoContext: '',
   danmuValue: '',
   id: '',
-  type:'',
+  type: '',
   collection: 'movieHot',
   /**
    * 页面的初始数据
@@ -36,9 +36,13 @@ Page({
     const self = this
 
     self.id = query.id
-    self.type = query.type
     fetch.fetchDetail('movieHot', self.id, self.handleDataDetail)
-
+    wx.showShareMenu({
+      withShareTicket: true
+    })
+  },
+  onHide() {
+    this.data.videoContext.pause()
   },
   handleDataDetail(data) {
     const self = this
@@ -48,7 +52,6 @@ Page({
     })
     // 添加历史记录到app全局变量中
     const currentMovie = self.data.movieDetail
-
     let historyList = app.globalData.userMovieInfo.historyList
 
 
@@ -65,46 +68,87 @@ Page({
 
     app.globalData.userMovieInfo.historyList = historyList
 
+    // 获取相似电影预告片
+    const typeStr = data.type  //电影类型字符串
+    let typeArr = []  //保存电影类型数据的数组
+    let rowLikeListArr = [] //保存各个类型获取到的相似电影列表(每个电影类型获取到电影数据作为数组的一个元素) , [[]]
+    const typeStrLen = typeStr.length / 2
+    let flag = 0 //判断数据库查询是否完成
+    for (let i = 0; i < typeStrLen; i++) { //遍历数组 访问数据库查询相似类型电影
+      const item = typeStr.substring(2 * i, 2 * (i + 1))
+      
+      wx.cloud.callFunction({
+        name: 'fetchLike',
+        data: {
+          type: item,
+          collection: 'movieHot'
+        }
+      }).then(res => {
 
-        // 获取相似电影预告片
-        wx.cloud.callFunction({
-          name: 'fetchLike',
-          data: {
-            type: self.type,
-            collection: 'movieHot'
+        let likeList = res.result.likeList.data
+
+        if (likeList.length > 0 && rowLikeListArr.length < 5) {
+          rowLikeListArr.push(likeList)
+          typeArr.push(item)
+        }
+        flag++
+        
+
+
+      })
+
+    }
+    // 间隔100ms执行函数,判断数据库查询是否完成
+    const time = setInterval(() => {
+     
+      
+      if (flag == typeStrLen) {
+        let likeListSelect = [] //保存处理过的相似电影数据
+        const maxLikeListSelectLength = 5 // 展示最大的相似电影数量
+        let rowLikeListAllLength = 0 //获取到所有相似电影数据的数量
+        rowLikeListArr.forEach(el => {
+          rowLikeListAllLength = rowLikeListAllLength + el.length
+        })
+        if (rowLikeListAllLength <= maxLikeListSelectLength) {
+          rowLikeListArr.forEach(el => {
+            el.forEach(typeItem => {
+              likeListSelect.push(typeItem)
+            })
+          })
+        } else {
+          const rowLikeListLength = rowLikeListArr.length // 查询到的电影类型数
+          const loopCount = Math.ceil(maxLikeListSelectLength / rowLikeListLength) // 对相似电影原始数据遍历次数
+          
+          let restNum = maxLikeListSelectLength //需要补充到likeListSelect的个数 
+          for (let i = 0; i < loopCount; i++) {
+            rowLikeListArr.forEach((el, index) => {
+              if (restNum > 0 && el.length > 0) {
+                const randomIndex = Math.floor(Math.random() * el.length)
+                const randomItem = el[randomIndex]
+                el.splice(randomIndex, 1)
+
+                // 判断随机挑选的数据是否重复
+                const duplicatePattern = likeListSelect.concat(data) 
+                let  isDuplicate = false
+                isDuplicate = duplicatePattern.some( duplicatePatternItem =>{
+                    return randomItem._id === duplicatePatternItem._id
+                })
+                if(!isDuplicate){
+                  likeListSelect.push(randomItem)
+                  restNum--
+                }
+              
+              }
+            })
           }
-        }).then(res => {
-          let likeList = res.result.likeList.data
-    
-          let likeListSelect = []
-          if (likeList.length > 5) {
-            const listLen = likeList.length
-            // 随机挑选相似预告片
-            for (let i = 0; i < 5; i++) {
-              const index = Math.floor(Math.random() * listLen)
-              const item = likeList[index]
-              likeListSelect.push(item)
-            }
-    
-          } else {
-            likeListSelect = likeList
-          }
-    
-          for (let i = 0; i < likeListSelect.length; i++) {
-            const el = likeListSelect[i]
-            if (el._id === self.id) {
-              likeListSelect.splice(i, 1)
-              i++
-            }
-          }
-    
-    
+
+
           likeListSelect.forEach(element => {
-    
+
             // 播放时长修饰
-    
+
             let duration = element.duration
-    
+
             let minute = Math.floor(duration / 60)
             minute = minute < 10 ? "0" + minute : minute
             let second = parseInt(duration % 60)
@@ -115,25 +159,30 @@ Page({
           self.setData({
             likeList: likeListSelect
           })
-        })
-    
-        // 初始化收藏状态
-    
-        
-        const collectionList = app.globalData.userMovieInfo.collectionList
-        if (collectionList.some(el => el._id === currentMovie._id)) {
-          self.setData({
-            isCollection: {  //收藏预告片
-              color: 'red',
-              text: '已收藏',
-              flag: true
-            },
-          })
+
         }
-    
-    
-        self.videoContext = wx.createVideoContext('movieVideo')
-        self.videoContext.play()
+        // 清除定时器
+        clearInterval(time) 
+      }
+    }, 100)
+
+
+
+
+    const collectionList = app.globalData.userMovieInfo.collectionList
+    if (collectionList.some(el => el._id === currentMovie._id)) {
+      self.setData({
+        isCollection: {  //收藏预告片
+          color: 'red',
+          text: '已收藏',
+          flag: true
+        },
+      })
+    }
+
+
+    self.videoContext = wx.createVideoContext('movieVideo')
+    self.videoContext.play()
 
 
   },
@@ -150,11 +199,7 @@ Page({
     const self = this
     if (self.data.danmudisabled) {
       self.videoCurrentTime = Math.ceil(e.detail.currentTime)
-      console.log(self.videoCurrentTime);
     }
-
-
-
   },
   danmuBlur(e) {
     this.danmuValue = e.detail.value
@@ -186,21 +231,9 @@ Page({
           collection: self.collection
         }
       }).then((res) => {
-        console.log(res)
-
         console.log("弹幕添加成功")
       })
     }, 250) //等待视频播放时间函数触发
-
-
-
-
-
-
-
-
-
-
   },
   collectionToggle() {
     const self = this
@@ -217,14 +250,14 @@ Page({
       })
 
       let collectionIndex
-      collectionList.forEach( (el,index) => {
-            if( el._id == currentMovie._id) collectionIndex = index
+      collectionList.forEach((el, index) => {
+        if (el._id == currentMovie._id) collectionIndex = index
       })
 
-      collectionList.splice(collectionIndex,1)
+      collectionList.splice(collectionIndex, 1)
 
 
-    }else{
+    } else {
       self.setData({
         isCollection: {
           color: 'red',
@@ -234,8 +267,8 @@ Page({
 
       })
 
-      if(collectionList.length >= 10){
-        collectionList = collectionList.slice(0,9)
+      if (collectionList.length >= 10) {
+        collectionList = collectionList.slice(0, 9)
       }
 
       collectionList.unshift(currentMovie)

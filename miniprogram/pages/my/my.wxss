@@ -104,8 +104,16 @@
     text-align: center;
 }
 .tip--nodata{
-    color: #fff;
-    line-height: 80rpx;
+    height: 100rpx;
+     display: flex;
+     justify-content: center;
+     padding-top: 10rpx;
+    
+}
+
+.tip__none--text{
+    
+    color: #ccc;
 }
 
 .set-container{

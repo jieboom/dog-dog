@@ -1,66 +1,40 @@
-// miniprogram/pages/channel/channel.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    typeList: [
+      {
+        url: '../../common/images/music.jpg',
+        desc: "音乐"
+      },
+      {
+        url: '../../common/images/story.jpg',
+        desc: "剧情"
+      },{
+        url:'../../common/images/cartoon.jpg',
+        desc:"动画"
+      },{
+        url:'../../common/images/fiction.jpg',
+        desc:"科幻"
+      },{
+        url:'../../common/images/comedy.jpg',
+        desc:"喜剧"
+      },{
+        url:'../../common/images/love.jpg',
+        desc:"爱情"
+      },{
+        url:'../../common/images/documentary.jpg',
+        desc:"传记"
+      },{
+        url:'../../common/images/panic.jpg',
+        desc:"惊悚"
+      }
+      
+    ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  goChannelDetail(e){
+     const type = e.currentTarget.dataset.type
+     
+     wx.navigateTo({
+       url: '../../pages/channelDetail/channelDetail?type='+type
+     })
   }
 })

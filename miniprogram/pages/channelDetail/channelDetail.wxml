@@ -6,7 +6,7 @@
 > 
  <view class="tip__none-container">
  <image mode="scaleToFill" class="tip__none--img" src="../../common/images/non-tip.png" />
- <text class="tip__none--text">没有匹配结果!</text>
+ <text class="tip__none--text">没有相关数据!</text>
  </view>
 </block>
  <block wx:else>
