@@ -1,0 +1,1 @@
+<video id="myVideo" bindtimeupdate="test" src="{{src}}"></video>

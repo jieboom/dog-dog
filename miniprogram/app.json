@@ -11,7 +11,9 @@
     "pages/editPersonInfo/editPersonInfo",
     "pages/personInfo/personInfo",
     "pages/about/about",
-    "pages/channelDetail/channelDetail"
+    "pages/channelDetail/channelDetail",
+    "pages/recommend/recommend",
+    "pages/test/test"
   ],
   "window": {
     "backgroundColor": "#ffffff",
@@ -34,6 +36,12 @@
       {
         "pagePath": "pages/channel/channel",
         "text": "频道",
+        "iconPath": "common/images/icon-tabbar.png",
+        "selectedIconPath": "common/images/icon-tabbar-selected.png"
+      },
+      {
+        "pagePath": "pages/recommend/recommend",
+        "text": "看点",
         "iconPath": "common/images/icon-tabbar.png",
         "selectedIconPath": "common/images/icon-tabbar-selected.png"
       },

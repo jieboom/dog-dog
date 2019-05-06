@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -47,6 +47,13 @@
 					"id": -1,
 					"name": "bg",
 					"pathName": "pages/avatarBg/avatarBg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
 					"scene": null
 				}
 			]

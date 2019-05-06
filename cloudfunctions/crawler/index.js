@@ -1,4 +1,4 @@
-// const puppeteer = require('puppeteer')
+const puppeteer = require('puppeteer')
 
 const qiniu = require('qiniu')
 const fs = require('fs')
@@ -53,7 +53,9 @@ const bucket = config.qiniu.bucket
 
     await page.waitForSelector('.more')
 
-    for(let i=0;i < 10;i++){
+    for(let i=0;i < 25;i++){
+        console.log(i);
+        
         await sleep(2000)
         page.click('.more')
     }
@@ -115,6 +117,8 @@ const bucket = config.qiniu.bucket
           let name = content.find('h1 span:first-child').text()
           let wantCount = parseInt(content.find('.subject-others-interests-ft a:last-child').text())
           let type = content.find('span[property="v:genre"]').text()
+          let indent = content.find('#link-report span').text()
+          indent = indent.replace(/\s|©豆瓣/g,'')
           let actor = []
 
           // 获取演员
@@ -138,6 +142,7 @@ const bucket = config.qiniu.bucket
             name,
             wantCount,
             type,
+            indent,
             actor,
             trailerLink
           }
@@ -150,6 +155,8 @@ const bucket = config.qiniu.bucket
         targetEl.type = other.type
         targetEl.actor = other.actor
         targetEl.trailerLink = other.trailerLink
+        targetEl.indent = other.indent
+
         contentPage.close()
 
 
@@ -239,6 +246,8 @@ const bucket = config.qiniu.bucket
 
 
   const movieData = await getMovies()
+  console.log(movieData);
+  
   
   let k = 0
   const len = movieData.length
@@ -247,16 +256,16 @@ const bucket = config.qiniu.bucket
     
     let nanoId = nanoid()
     await uploadToQiniu(movieData[k].trailer, nanoId + '.mp4')
-    movieData[k].trailer = 'http://ppbde1o09.bkt.clouddn.com/' + nanoId + '.mp4'
+    movieData[k].trailer = 'http://pr0d5m3ud.bkt.clouddn.com/' + nanoId + '.mp4'
 
     nanoId = nanoid()
-    await uploadToQiniu(movieData[k].poster, nanoId + '.webp')
-    movieData[k].poster = 'http://ppbde1o09.bkt.clouddn.com/' + nanoId + '.webp'
+    await uploadToQiniu(movieData[k].poster, nanoId + '.jpg')
+    movieData[k].poster = 'http://pr0d5m3ud.bkt.clouddn.com/' + nanoId + '.jpg'
 
     for (let i = 0; i < movieData[k].actor.length; i++) {
       nanoId = nanoid()
-      await uploadToQiniu(movieData[k].actor[i].avatar, nanoId + '.webp')
-      movieData[k].actor[i].avatar = 'http://ppbde1o09.bkt.clouddn.com/' + nanoId + '.webp'
+      await uploadToQiniu(movieData[k].actor[i].avatar, nanoId + '.jpg')
+      movieData[k].actor[i].avatar = 'http://pr0d5m3ud.bkt.clouddn.com/' + nanoId + '.jpg'
     }
     console.log("成功上传第"+(k+1)+"条数据");
     

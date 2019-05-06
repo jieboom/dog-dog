@@ -20,7 +20,7 @@
                 <text>{{isCollection.text}}</text>
             </view>
         </view>
-        <view class="desc--content">{{movieDetail.content}}</view>
+        <view class="desc--content">{{movieDetail.indent}}</view>
         <view class="desc--actor">
             <text class="actor--title">导演/演员</text>
             <view class="actor--wrapper">

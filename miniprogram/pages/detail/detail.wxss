@@ -84,7 +84,19 @@ video {
     padding: 0 50rpx;
 
 }
+.desc--content{
+    text-indent: 20rpx;
+    margin-top: 50rpx;
+    line-height: 35rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    color: #ccc;
 
+}
 .desc--other_left {
     color: #ccc;
 }
@@ -102,9 +114,7 @@ video {
     margin-right: 10rpx;
 }
 
-.desc--content {
-    min-height: 200rpx;
-}
+
 
 .desc--actor {
     margin-top: 50rpx;

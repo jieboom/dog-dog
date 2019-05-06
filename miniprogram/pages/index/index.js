@@ -9,9 +9,7 @@ Page({
     movieList: [],
     hasMore: true,
     showLoading: true,
-    movieSkinIndex: 0,
-    isBottom: false
-
+    movieSkinIndex: 0
   },
 
   /**
@@ -46,14 +44,12 @@ Page({
     })
   },
   goDetail(e){
-     const id = e.currentTarget.dataset.id
-     const type = e.currentTarget.dataset.type
-    
-     wx.navigateTo({
-      url: '../detail/detail?id='+id+'&type='+type
-     
-    });
+    const id = e.currentTarget.dataset.id
+    wx.navigateTo({
+     url: '../detail/detail?id='+id
+   })
   },
+
   handleReqData(data) {
     const self = this
 
