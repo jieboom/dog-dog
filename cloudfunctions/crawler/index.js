@@ -42,7 +42,7 @@ const bucket = config.qiniu.bucket
     console.log(" start visit target page");
 
     const brower = await puppeteer.launch({
-      args: ["--no-sandbox"],
+      args: ["--no-sandbox"],  //无沙箱模式
     })
 
     const page = await brower.newPage()
@@ -61,23 +61,15 @@ const bucket = config.qiniu.bucket
     }
 
     const res = await page.evaluate(() => {
-
       var $ = window.$
       var items = $('.list-wp .item')
-
       var links = []
       if (items.length > 0) {
         items.each((index, el) => {
           var el = $(el)
-
           var doubanId = el.find('.cover-wp').data('id')
           var rate = el.find('strong').text()
           var contentLink = el.attr('href')
-
-
-
-
-
           links.push({
             doubanId,
             rate,
@@ -85,7 +77,6 @@ const bucket = config.qiniu.bucket
           })
         })
       }
-
       return links
     })
     console.log('已获取爬取电影目录列表, 电影列表数目为' + res.length)

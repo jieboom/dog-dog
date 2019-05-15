@@ -7,16 +7,14 @@ function fetchMovieList(collection, start, cb, cb_fail) {
         if (start < reqMaxCount) {
             movieCo.limit(reqMaxCount).get()
                 .then(res => {
-                   
+                    
                     if (res.data.length < 5) {
                         self.setData({
                             hasMore: false,
                             movieSkinIndex: self.data.movieSkinIndex + reqMaxCount
                         })
                     } else {
-    
                         self.setData({
-                            
                             movieSkinIndex: self.data.movieSkinIndex + reqMaxCount,
                         })
                     }
@@ -29,9 +27,7 @@ function fetchMovieList(collection, start, cb, cb_fail) {
                     })
                 })
                 .catch(error => {
-                   
                     typeof cb_fail && cb_fail()
-
                     self.setData({
                         showLoading: false
                     })
