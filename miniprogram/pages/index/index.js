@@ -1,12 +1,14 @@
 
 const fetch = require('../../common/script/fetch.js')
 Page({
-
+  isOnLoad: false,
   /**
    * 页面的初始数据
    */
   data: {
     movieList: [],
+    topMovieList:[],
+    bottomMovieList:[],
     hasMore: true,
     showLoading: true,
     movieSkinIndex: 0
@@ -16,10 +18,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+    
     const self = this
-    var args = [ 'movieHot',self.data.movieSkinIndex,self.handleReqData ]
+    self.isOnLoad = true
+    var args = [ 'movieHot',self.data.movieSkinIndex,self.handleReqData]
     fetch.fetchMovieList.apply(self,args)
+    
+   
   },
 
 
@@ -75,8 +80,15 @@ Page({
     self.setData({
       movieList: self.data.movieList.concat(movieData)
     })
-
-   
+    self.setData({
+      bottomMovieList: self.data.movieList.slice(3)
+    })
+     if( self.isOnLoad){
+      self.setData({
+        topMovieList: self.data.movieList.slice(0,3)
+      })
+      self.isOnLoad = false
+     }
   }
   
   

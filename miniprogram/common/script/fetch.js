@@ -83,13 +83,14 @@ function fetchSearchResult( collection , start,key,cb,cb__fail ){
     const self = this
     const movieCo = wx.cloud.database().collection(collection)
     const keyRE = new RegExp(key)
+    console.log(keyRE)
     setTimeout(() => {
         if (start < reqMaxCount) {
             movieCo.where({
-                name: keyRE
+                name: keyRE 
             }).limit(reqMaxCount).get()
                 .then(res => {
-                   
+ 
                     if (res.data.length < 5) {
                         self.setData({
                             hasMore: false,

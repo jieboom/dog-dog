@@ -3,14 +3,29 @@ Page({
     key:'',
    data:{
     initValue:'',
-    hotKeyList:["jdasj","kfow","rwoirfjwe",'qwe','eqw','eqjiqjd1245'],
+    hotKeyList:["蜘蛛侠","复仇者联盟4","何以为家",'无名之辈','霸王别姬'],
     historyKeyList:[]
    },
    onLoad(){
+     const self = this
      const historyKeyList = app.globalData.userMovieInfo.historyKey 
-     this.setData({
+     self.setData({
         historyKeyList
      })
+     wx.cloud.callFunction({
+         name:"fetchHotSearch",
+         data:{
+
+         }
+     }).then(res => {
+           console.log(res);
+           
+           if(res.result.hotKeyList.length > 0){
+                self.setData({
+                    hotKeyList: res.result.hotKeyList
+                })
+           }
+     } )
    },
    onShow(){
       this.setData({

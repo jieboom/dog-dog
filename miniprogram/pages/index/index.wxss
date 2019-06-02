@@ -58,6 +58,8 @@ swiper .desc--decoration{
 .swiper-item--title{
   font-weight: 700;
   font-size: 34rpx;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 

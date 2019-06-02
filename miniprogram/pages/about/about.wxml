@@ -10,11 +10,6 @@
             <view class="webapp-intro-title">作者</view>
             <view class="webapp-intro-content">jieboom：https://github.com/jieboom/trailer-dog</view>
         </view>
-        <view class="webapp-intro-item">
-            <view class="webapp-intro-title">此项目所使用到的小程序API</view>
-            <view class="webapp-intro-content">
-            wx.request、wx.chooseImage、wx.previewImage、wx.playVoice、wx.saveFile、wx.setStorage、wx.getStorage、wx.clearStorage、wx.getStorageInfo、wx.getLocation、wx.getSystemInfo、wx.onAccelerometerChange、wx.showToast、wx.showModal、wx.showActionSheet、wx.setNavigationBarTitle、wx.navigateTo、wx.redirectTo、wx.login
-            </view>
-        </view>
+       
     </view>
 </view>

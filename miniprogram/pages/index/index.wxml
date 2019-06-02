@@ -8,35 +8,20 @@
     <text class='search--text'>搜索精彩预告</text>
   </view>
   <swiper indicator-dots="true" indicator-color="#00838f" indicator-active-color="#000000" autoplay="true" interval="3000" circular='true'>
-    <swiper-item  class="" item-id="">
-      <text class="swiper-item--title">我是药神 我就是药神</text>
+    <swiper-item   wx:for="{{topMovieList}}" style="background-image:url({{item.poster}})" class="" item-id="">
+      <text class="swiper-item--title">{{item.name}}</text>
       <view class="swiper-item--desc">
-        <text class="desc--type">喜剧</text>
+        <text class="desc--type">{{item.type}}</text>
         <text class="desc--decoration">|</text>
-        <text class="desc--text">01:30</text>
+        <text class="desc--text">{{item.duration}}</text>
       </view>
     </swiper-item>
-    <swiper-item class="" item-id="">
-      <text class="swiper-item--title">我是药神 我就是药神</text>
-      <view class="swiper-item--desc">
-        <text class="desc--type">喜剧</text>
-        <text class="desc--decoration">|</text>
-        <text class="desc--text">01:30</text>
-      </view>
-    </swiper-item>
-    <swiper-item class="" item-id="">
-      <text class="swiper-item--title">我是药神 我就是药神</text>
-      <view class="swiper-item--desc">
-        <text class="desc--type">喜剧</text>
-        <text class="desc--decoration">|</text>
-        <text class="desc--text">01:30</text>
-      </view>
-    </swiper-item>
+   
   </swiper>
 
 
  <import src="../../template/movieList/movieList.wxml"/>
- <template is="movieList" data="{{movieList:movieList,hasMore:hasMore}}">
+ <template is="movieList" data="{{movieList:bottomMovieList,hasMore:hasMore}}">
  </template>
  </block>
   
